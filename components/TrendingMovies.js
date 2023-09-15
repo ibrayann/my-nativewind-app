@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import Carousel from "react-native-snap-carousel";
+import { image500 } from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 const TrendingMovies = ({ data }) => {
@@ -23,7 +24,7 @@ const TrendingMovies = ({ data }) => {
       <Carousel
         data={data}
         renderItem={({ item }) => (
-          <MovieCard item={item} key={item} handleClick={handleClick} />
+          <MovieCard item={item} key={item.id} handleClick={handleClick} />
         )}
         firstItem={1}
         inactiveSlideOpacity={0.6}
@@ -42,7 +43,9 @@ const MovieCard = ({ item, handleClick }) => {
   return (
     <TouchableWithoutFeedback onPress={() => handleClick(item)}>
       <Image
-        source={require(`../assets/images/moviePoster1.png`)}
+        source={{
+          uri: image500(item.poster_path),
+        }}
         style={{
           width: width * 0.6,
           height: height * 0.4,

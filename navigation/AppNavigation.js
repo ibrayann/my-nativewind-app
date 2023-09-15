@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import MovieScreen from "../screens/MovieScreen";
 import PersonScreen from "../screens/PersonScreen";
+import SearchScreen from "../screens/SearchScreen";
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,13 @@ const AppNavigation = () => {
             headerShown: false,
           }}
           component={PersonScreen}
+        />
+        <Stack.Screen
+          name="Search"
+          options={{
+            headerShown: false,
+          }}
+          component={SearchScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
